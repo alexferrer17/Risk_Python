@@ -1,8 +1,4 @@
-Create a map of the territories and the initial placement of
-armies for both players and the neutral armies. This can be
-done using a dictionary where the keys are the territory
-names and the values are the number of armies present in
- that territory.
+Create a map of the territories and the initial placement of armies for both players and the neutral armies. This can bedone using a dictionary where the keys are the territory names and the values are the number of armies present in that territory.
 
 Write functions for the main actions of the game: attacking
 , defending, and moving armies. The attack function will
