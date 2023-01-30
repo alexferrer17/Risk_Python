@@ -1,15 +1,11 @@
-Create a map of the territories and the initial placement of armies for both players and the neutral armies. This can bedone using a dictionary where the keys are the territory names and the values are the number of armies present in that territory.
+Create a map of the territories and the initial placement of armies for both players and the neutral armies. 
+This can bedone using a dictionary where the keys are the territory names and the values are the number of armies present in that territory.
 
-Write functions for the main actions of the game: attacking
-, defending, and moving armies. The attack function will
- take in the attacker's territory, the defender's territory,
-  and the number of dice to roll for each side. It will then use
-   random number generation to simulate the dice rolls and determine
-    the outcome of the battle. The defend function will be similar, but
-    will be called when a neutral territory is attacked.
+Write functions for the main actions of the game: attacking, defending, and moving armies. 
+The attack function will take in the attacker's territory, the defender's territory, and the number of dice to roll for each side. It will then use random number generation to simulate the dice rolls and determine the outcome of the battle. 
+The defend function will be similar, but will be called when a neutral territory is attacked.
 
-Create a game loop that allows players to take turns performing these actions
- until one player has conquered all territories and won the game.
+Create a game loop that allows players to take turns performing these actions until one player has conquered all territories and won the game.
 
 Write the function that allows players to place the remaining armies.
 
