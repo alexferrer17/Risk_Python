@@ -1,7 +1,5 @@
 import random
 
-
-
 # List of all territories in the game
 territories = [
     "Alaska", "Northwest Territory", "Greenland",
@@ -28,17 +26,9 @@ player2_territories = territories[14:28]
 neutral_territories = territories[28:]
 
 # Distribute troops randomly among players
-player1_troops = []
-player2_troops = []
-neutral_troops = []
-
-while sum(player1_troops) + sum(player2_troops) + sum(neutral_troops) != total_troops:
-    if len(player1_troops) < 14:
-        player1_troops.append(random.randint(1, total_troops//30))
-    if len(player2_troops) < 14:
-        player2_troops.append(random.randint(1, total_troops//30))
-    if len(neutral_troops) < 14:
-        neutral_troops.append(random.randint(1, total_troops//30))
+player1_troops = [random.randint(1, total_troops//30) for _ in range(14)]
+player2_troops = [random.randint(1, total_troops//30) for _ in range(14)]
+neutral_troops = [random.randint(1, total_troops//30) for _ in range(14)]
 
 # Make sure that each player has at most 30 troops
 if sum(player1_troops) > 30:
@@ -76,5 +66,5 @@ for player, info in players.items():
     print(f"Troops: {info['troops']}")
     print("\n")
 
-#Day 1 setup board with all the terretories
-#Day 2 setup the attacking defending and moving troops
+#Day 1 setup board with all the territories
+#Day 2 setup the attacking, defending, and moving troops
