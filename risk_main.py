@@ -1,5 +1,9 @@
 import random
 from player import Player
+from territories import Territories
+
+# Create an instance of the Territories class
+my_territories = Territories()
 
 # List of all territories in the game
 territories = [
@@ -73,3 +77,11 @@ for player, obj in players.items():
     print(f"Territories: {', '.join(obj.territories)}")
     print(f"Total troops: {sum(obj.troops)}")
     print()
+
+# Call the instance method on the instance
+adj_list = my_territories.read_adjacency_list('territory_data.txt')
+
+if my_territories.is_adjacent('Ukraine', 'Japan', adj_list):
+    print('Ukraine is adjacent to Japan')
+else:
+    print('Ukraine is not adjacent to Japan')
