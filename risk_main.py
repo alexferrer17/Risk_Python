@@ -87,7 +87,6 @@ if my_territories.is_adjacent('Ukraine', 'Japan', adj_list):
 else:
     print('Ukraine is not adjacent to Japan')
 
-#Ask user to input and see if the territories work
 
 # Ask the user to input two territories
 territory1 = input("Enter the name of the first territory: ")
@@ -102,15 +101,26 @@ else:
     print("Invalid input. Please enter two different territories that are owned by the first player.")
 
 # Get the input from the user
-from_territory = input("Enter the name of the territory from which you want to move troops: ")
-to_territory = input("Enter the name of the territory to which you want to move troops: ")
+move_from_territory = input("Enter the name of the territory from which you want to move troops: ")
+move_to_territory = input("Enter the name of the territory to which you want to move troops: ")
 num_troops = int(input("how many troops do you want to move: "))
 
-#checks if there are enough troops
-if(num_troops >= player1.troops[from_territory]):
-    print("You can't move that amount of troops")
+#move troops from method;
+player1.move_troops(move_from_territory, move_to_territory, num_troops)
+
+#Get the input from user
+attack_from_territory = input("Enter the name of the territory from which you want to atack from: ")
+attack_to_territory = input("Enter the name of the territory to which you want to atack to: ")
+#num_attacking_troops = int(input("Enter the number of troops you want to attack with: "))
+
+
+# player1 attacks player2's territory3
+player1.attack(player2, attack_from_territory, attack_to_territory, 1)
+
+# check if attacker has gained a new territory
+if attack_to_territory in player1.territories:
+    print("Player 1 has successfully conquered", attack_to_territory)
 else:
-    # Update the number of troops for the from_territory and to_territory
-    player1.troops[from_territory] -= num_troops
-    player1.troops[to_territory] += num_troops
-    print("The move has been successful, here are the new amount of troops from " + to_territory + ": " + str(player1.troops[to_territory]))
+    print("Player 1 failed to conquer", attack_to_territory)
+print("")
+# Print information about players
