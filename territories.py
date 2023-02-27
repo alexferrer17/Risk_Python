@@ -3,10 +3,8 @@ class Territories:
     def read_adjacency_list(self, filename):
         """
         Reads the adjacency list from a file and returns it as a dictionary.
-
         Parameters:
             filename (str): The name of the file to read.
-
         Returns:
             A dictionary representing the adjacency list. The keys are the names of
             territories and the values are lists of the names of adjacent territories.
@@ -24,12 +22,10 @@ class Territories:
     def is_adjacent(self, territory1, territory2, adj_list):
         """
         Checks if territory1 is adjacent to territory2 based on the adjacency list.
-
         Args:
             territory1 (str): The name of the first territory.
             territory2 (str): The name of the second territory.
             adj_list (dict): The adjacency list data structure.
-
         Returns:
             bool: True if territory1 is adjacent to territory2, False otherwise.
         """

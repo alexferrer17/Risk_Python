@@ -1,9 +1,9 @@
 import random
 
 class Player:
-    def __init__(self, territories, troops):
+    def __init__(self, territories, total_troops):
         self.territories = territories
-        self.troops = troops
+        self.troops = {territory: troops for territory, troops in zip(territories, total_troops)}
 
     def attack(self, defender, attacker_dice, defender_dice):
         attacker_rolls = []

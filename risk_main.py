@@ -74,14 +74,43 @@ players = {
 # Print information about players
 for player, obj in players.items():
     print(f"Player: {player}")
-    print(f"Territories: {', '.join(obj.territories)}")
-    print(f"Total troops: {sum(obj.troops)}")
+    for territory in obj.territories:
+        troop_count = obj.troops[territory]
+        print(f"{territory}: {troop_count} troops")
     print()
 
-# Call the instance method on the instance
+# Call the instance method on the instance to test if it works
 adj_list = my_territories.read_adjacency_list('territory_data.txt')
 
 if my_territories.is_adjacent('Ukraine', 'Japan', adj_list):
     print('Ukraine is adjacent to Japan')
 else:
     print('Ukraine is not adjacent to Japan')
+
+#Ask user to input and see if the territories work
+
+# Ask the user to input two territories
+territory1 = input("Enter the name of the first territory: ")
+territory2 = input("Enter the name of the second territory: ")
+
+# Check if the user input is valid
+if territory1 in player1.territories and territory2 in player1.territories and territory1 != territory2:
+    # The user input is valid
+    print(f"You have selected to move troops from {territory1} to {territory2}")
+else:
+    # The user input is not valid
+    print("Invalid input. Please enter two different territories that are owned by the first player.")
+
+# Get the input from the user
+from_territory = input("Enter the name of the territory from which you want to move troops: ")
+to_territory = input("Enter the name of the territory to which you want to move troops: ")
+num_troops = int(input("how many troops do you want to move: "))
+
+#checks if there are enough troops
+if(num_troops >= player1.troops[from_territory]):
+    print("You can't move that amount of troops")
+else:
+    # Update the number of troops for the from_territory and to_territory
+    player1.troops[from_territory] -= num_troops
+    player1.troops[to_territory] += num_troops
+    print("The move has been successful, here are the new amount of troops from " + to_territory + ": " + str(player1.troops[to_territory]))
