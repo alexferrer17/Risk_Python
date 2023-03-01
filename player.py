@@ -1,9 +1,16 @@
 import random
 
 class Player:
-    def __init__(self, territories, total_troops):
+    def __init__(self, name, territories, total_troops):
+        self.name = name
         self.territories = territories
         self.troops = {territory: troops for territory, troops in zip(territories, total_troops)}
+
+    def print_info(self):
+        print(f"Player: {self.name}")
+        print("Territories:")
+        for territory in self.territories:
+            print(f"  - {territory} ({self.troops[territory]} troops)")
 
     def move_troops(self, from_territory, to_territory, num_troops):
         """
@@ -54,3 +61,24 @@ class Player:
 
     def remove_territory(self, territory):
         del self.troops[territory]
+
+    def add_troops(self):
+        """
+        Add troops to each territory based on the number of territories the player owns.
+        """
+        # Minimum number of troops to add per turn
+        min_troops = 3
+
+        # Calculate the number of troops to add based on the number of territories owned
+        num_territories = len(self.territories)
+        if num_territories < 12:
+            num_troops = min_troops
+        else:
+            num_troops = min_troops + ((num_territories - 12) // 3)
+
+        # Add the troops to each territory
+        for territory in self.territories:
+            self.troops[territory] += num_troops
+
+        # Print the number of troops added
+        print(f"{num_troops} troops have been added to each of {self.name}'s territories.")
