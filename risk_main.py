@@ -60,24 +60,25 @@ while sum(player2_troops) !=30:
 neutral_troops = [random.randint(1, 3) for _ in range(14)]
 
 # Create Player objects for each player
-player1 = Player(player1_territories, player1_troops)
-player2 = Player(player2_territories, player2_troops)
-neutral = Player(neutral_territories, neutral_troops)
+player1 = Player("player1", player1_territories, player1_troops)
+player2 = Player("player2", player2_territories, player2_troops)
+neutral = Player("neutral", neutral_territories, neutral_troops)
 
-# Dictionary to store information about players
+"""# Dictionary to store information about players
 players = {
     "player1": player1,
     "player2": player2,
     "neutral": neutral
 }
 
-# Print information about players
-for player, obj in players.items():
-    print(f"Player: {player}")
-    for territory in obj.territories:
-        troop_count = obj.troops[territory]
-        print(f"{territory}: {troop_count} troops")
-    print()
+"""
+
+players = [player1, player2, neutral]
+
+# Print information of each player
+for player in players:
+    player.print_info()
+
 
 # Call the instance method on the instance to test if it works
 adj_list = my_territories.read_adjacency_list('territory_data.txt')
