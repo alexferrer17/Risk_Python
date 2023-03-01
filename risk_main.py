@@ -64,22 +64,16 @@ player1 = Player("player1", player1_territories, player1_troops)
 player2 = Player("player2", player2_territories, player2_troops)
 neutral = Player("neutral", neutral_territories, neutral_troops)
 
-"""# Dictionary to store information about players
-players = {
-    "player1": player1,
-    "player2": player2,
-    "neutral": neutral
-}
-
-"""
-
 players = [player1, player2, neutral]
 
 # Print information of each player
 for player in players:
     player.print_info()
 
+player1.play_game(players)
 
+
+"""
 # Call the instance method on the instance to test if it works
 adj_list = my_territories.read_adjacency_list('territory_data.txt')
 
@@ -87,6 +81,9 @@ if my_territories.is_adjacent('Ukraine', 'Japan', adj_list):
     print('Ukraine is adjacent to Japan')
 else:
     print('Ukraine is not adjacent to Japan')
+
+player1.add_troops()
+
 
 
 # Ask the user to input two territories
@@ -114,7 +111,6 @@ attack_from_territory = input("Enter the name of the territory from which you wa
 attack_to_territory = input("Enter the name of the territory to which you want to atack to: ")
 #num_attacking_troops = int(input("Enter the number of troops you want to attack with: "))
 
-
 # player1 attacks player2's territory3
 player1.attack(player2, attack_from_territory, attack_to_territory, 1)
 
@@ -125,3 +121,4 @@ else:
     print("Player 1 failed to conquer", attack_to_territory)
 print("")
 # Print information about players
+"""
