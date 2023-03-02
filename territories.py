@@ -35,15 +35,12 @@ class Territories:
             return True
         else:
             return False
-
-
-# Create an instance of the Territories class
-territories = Territories()
-
-# Call the instance method on the instance
-adj_list = territories.read_adjacency_list('territory_data.txt')
-
-if territories.is_adjacent('Ukraine', 'Japan', adj_list):
-    print('Ukraine is adjacent to Japan')
-else:
-    print('Ukraine is not adjacent to Japan')
+    def get_adjacent_territories(self, filename, territory):
+        """
+        Returns a list of adjacent territories for the given territory based on the adjacency list.
+        Args:
+        territory (str): The name of the territory.
+        Returns:
+        A list of the names of adjacent territories.
+        """
+        return self.read_adjacency_list(filename).get(territory, [])

@@ -72,7 +72,6 @@ for player in players:
 
 player1.play_game(players)
 
-
 """
 # Call the instance method on the instance to test if it works
 adj_list = my_territories.read_adjacency_list('territory_data.txt')
@@ -81,44 +80,4 @@ if my_territories.is_adjacent('Ukraine', 'Japan', adj_list):
     print('Ukraine is adjacent to Japan')
 else:
     print('Ukraine is not adjacent to Japan')
-
-player1.add_troops()
-
-
-
-# Ask the user to input two territories
-territory1 = input("Enter the name of the first territory: ")
-territory2 = input("Enter the name of the second territory: ")
-
-# Check if the user input is valid
-if territory1 in player1.territories and territory2 in player1.territories and territory1 != territory2:
-    # The user input is valid
-    print(f"You have selected to move troops from {territory1} to {territory2}")
-else:
-    # The user input is not valid
-    print("Invalid input. Please enter two different territories that are owned by the first player.")
-
-# Get the input from the user
-move_from_territory = input("Enter the name of the territory from which you want to move troops: ")
-move_to_territory = input("Enter the name of the territory to which you want to move troops: ")
-num_troops = int(input("how many troops do you want to move: "))
-
-#move troops from method;
-player1.move_troops(move_from_territory, move_to_territory, num_troops)
-
-#Get the input from user
-attack_from_territory = input("Enter the name of the territory from which you want to atack from: ")
-attack_to_territory = input("Enter the name of the territory to which you want to atack to: ")
-#num_attacking_troops = int(input("Enter the number of troops you want to attack with: "))
-
-# player1 attacks player2's territory3
-player1.attack(player2, attack_from_territory, attack_to_territory, 1)
-
-# check if attacker has gained a new territory
-if attack_to_territory in player1.territories:
-    print("Player 1 has successfully conquered", attack_to_territory)
-else:
-    print("Player 1 failed to conquer", attack_to_territory)
-print("")
-# Print information about players
 """
